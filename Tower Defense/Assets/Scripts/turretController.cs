@@ -5,8 +5,10 @@ using UnityEngine;
 public class turretController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int range;
+    public float range;
+    public int damage;
     public float attackSpeed;
+    public int shootForce;
     public GameObject bullet;
     public List<GameObject> targets = new List<GameObject>();
     //public Queue<GameObject> targ = new Queue<GameObject>();
@@ -15,6 +17,7 @@ public class turretController : MonoBehaviour
     void Start()
     {
         head = this.transform.Find("Head");
+        this.gameObject.GetComponent<SphereCollider>().radius = range;
         StartCoroutine("Patrol");
     }
 
@@ -48,7 +51,8 @@ public class turretController : MonoBehaviour
 
     void Shoot(){
         GameObject b = Instantiate(bullet,head.position, Quaternion.identity);
-        b.GetComponent<Rigidbody>().AddForce(head.forward*800);
+        b.GetComponent<bulletController>().damage = damage;
+        b.GetComponent<Rigidbody>().AddForce(head.forward*shootForce);
     }
     IEnumerator Patrol() 
     {
