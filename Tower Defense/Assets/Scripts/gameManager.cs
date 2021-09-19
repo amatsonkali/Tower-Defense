@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class gameManager : MonoBehaviour
 {
+
     public static gameManager instance;
+
+    static bool onPause;
+
+    static bool fastSpeed;
+
 
     public GameObject nexus;
     public int currentEnemies;
@@ -30,15 +36,35 @@ public class gameManager : MonoBehaviour
     }
     void Start()
     {
+        onPause = false; 
+        fastSpeed=false;
         nexus= GameObject.Find("Nexus");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 
+    public void tooglePause(){
+        //Debug.Log("Pausa? "+onPause);
+        onPause= !onPause;
+        if(onPause){
+            //sacar mensaje de pausa
+            Time.timeScale*=0.01f;
+        }else{
+            Time.timeScale/=0.01f;
+        }
+    }
+
+    public void toogleGameSpeed(){
+        fastSpeed=!fastSpeed;
+        if(fastSpeed){
+            Time.timeScale*=2;
+        }else{
+            Time.timeScale/=2;
+        }
+    }
     public Vector3 getNexusPosition(){
         return nexus.transform.position;
     }
