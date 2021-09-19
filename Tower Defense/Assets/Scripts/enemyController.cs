@@ -11,15 +11,15 @@ public class enemyController : MonoBehaviour
     void Start()
     {
         this.gameObject.GetComponent<NavMeshAgent>().SetDestination( gameManager.instance.getNexusPosition() );
-        //gameManager.instance.currentEnemies++;
         gameManager.instance.CurrentEnemies++;
+        //gameManager.instance.spawnedEnemies++;
     }
 
     void takeDamage(int dmg){
         health-=dmg;
         if(health <=0){
-            //gameManager.instance.currentEnemies--;
             gameManager.instance.CurrentEnemies--;
+            //gameManager.instance.killedEnemies--;
             Destroy(this.gameObject);
         }
     }
