@@ -4,16 +4,24 @@ using UnityEngine;
 using System;
 public class enemySpawner : MonoBehaviour
 {
+    private int totalEnemies;
     [SerializeField]
     private List<EnemyClassif> enemyPool;
 
     [SerializeField]
     public List<EnemySet> enemyRounds;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine("Horde");
+        foreach (EnemySet round in enemyRounds)
+        {
+            totalEnemies+= round.enemyTypes.Count;
+        }
+        gameManager.instance.addTotalEnemies(totalEnemies);
     }
 
     // Update is called once per frame

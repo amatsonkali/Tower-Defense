@@ -1,28 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
-
 public class gameManager : MonoBehaviour
 {
 
     public static gameManager instance;
-
+    public Slider progressSlider;
     static bool onPause;
 
     static bool fastSpeed;
-
-
     public GameObject nexus;
-    public int currentEnemies;
+    int totalEnemies;
+    int spawnedEnemies;
+    int killedEnemies;
+    float levelProgress;
     public int CurrentEnemies {
         get{
-           return currentEnemies; 
+           return 0; 
         } 
         set{
-            Debug.Log("Enemigos: "+value); 
-            currentEnemies=value;
-            //TODO: Comprobar que no hay mas olas de enemigos
-            if(currentEnemies<1) endGame(true); 
+            if(value>0){
+                spawnedEnemies++;
+            }else if(value<0) killedEnemies++;
+
+            levelProgress= progressSlider.value = (float)(spawnedEnemies+killedEnemies)/(2*totalEnemies);
+            
+            if(levelProgress>=1){
+                endGame(true);
+            }
         } 
     
     }     
@@ -39,6 +45,7 @@ public class gameManager : MonoBehaviour
         onPause = false; 
         fastSpeed=false;
         nexus= GameObject.Find("Nexus");
+        progressSlider = GameObject.Find("Progress Slider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -46,11 +53,15 @@ public class gameManager : MonoBehaviour
     {
     }
 
+    public void addTotalEnemies(int value){
+        totalEnemies+=value;
+    }
+
     public void tooglePause(){
         //Debug.Log("Pausa? "+onPause);
         onPause= !onPause;
         if(onPause){
-            //sacar mensaje de pausa
+            //sacar mensaje de pausa?
             Time.timeScale*=0.01f;
         }else{
             Time.timeScale/=0.01f;
