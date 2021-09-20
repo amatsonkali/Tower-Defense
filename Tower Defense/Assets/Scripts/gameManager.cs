@@ -101,7 +101,7 @@ public class gameManager : MonoBehaviour
         }
         messagePanel.SetActive(true);
         messagePanel.transform.Find("Message").GetComponent<Text>().text= message;
-        messagePanel.transform.Find("Score").GetComponent<Text>().text = scoreManager.instance.checkOutScore().ToString();
+        messagePanel.transform.Find("Score").GetComponent<Text>().text = scoreManager.instance.checkOutScore(gameWon).ToString();
     }
 
     public void toMainMenu(){

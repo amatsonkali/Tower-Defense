@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 3.5
-  damage: 30
-  attackSpeed: 1
+  damage: 5
+  attackSpeed: 3
   shootForce: 800
   bullet: {fileID: 1384234928535309064, guid: 7e3e109c5809f464e88640fd70de95b7, type: 3}
   targets: []
