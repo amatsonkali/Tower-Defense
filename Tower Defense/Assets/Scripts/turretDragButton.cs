@@ -4,12 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class turretDragButton : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    // Start is called before the first frame update
     public GameObject turretPrefab;
-    void Start()
-    {
-        
-    }
 
     public void OnDrag(PointerEventData eventData){
         transform.position = Input.mousePosition;
@@ -22,17 +17,8 @@ public class turretDragButton : MonoBehaviour, IDragHandler, IEndDragHandler
         
         if (Physics.Raycast(ray, out hit)) {
             if(hit.transform.tag.Contains("Slot") ){
-                //mensaje de instanciar algo
                 hit.transform.SendMessage("spawnTurret",turretPrefab);
             }
         }
     }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }

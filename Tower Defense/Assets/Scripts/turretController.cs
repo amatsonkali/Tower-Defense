@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class turretController : MonoBehaviour
 {
-    // Start is called before the first frame update
     public float range;
     public int damage;
     public float attackSpeed;
     public int shootForce;
     public GameObject bullet;
     public List<GameObject> targets = new List<GameObject>();
-    //public Queue<GameObject> targ = new Queue<GameObject>();
-    //GameObject currentTarget;
     Transform head;
     void Start()
     {
@@ -24,20 +21,15 @@ public class turretController : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         
         if(other.tag.Contains("Enemy") ){
-            //currentTarget = other.gameObject;
             targets.Add(other.gameObject);
-            //targ.Enqueue(other.gameObject);
-            
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if(other.tag.Contains("Enemy")){
             targets.Remove(other.gameObject);
-            //targ.Dequeue();
         }
     }
-    // Update is called once per frame
     void Update()
     {
         if(targets.Count>0 ){

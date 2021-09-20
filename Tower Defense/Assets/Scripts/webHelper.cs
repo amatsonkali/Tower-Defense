@@ -14,24 +14,11 @@ public class webHelper : MonoBehaviour
             instance = this;
         }
     }
-
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
      
     public void GetData(GameObject instance) => StartCoroutine(GetData_Coroutine(instance));
  
     IEnumerator GetData_Coroutine(GameObject instance)
-    {
-
-        
+    {   
         using(UnityWebRequest request = UnityWebRequest.Get(uri))
         {
             yield return request.SendWebRequest();
@@ -49,7 +36,6 @@ public class webHelper : MonoBehaviour
  
     IEnumerator PostData_Coroutine(ScoreTuple st)
     {
-
         WWWForm form = new WWWForm();
         form.AddField("score", st.score);
         form.AddField("date", st.date.ToString("MM/dd/yyyy HH:mm"));
