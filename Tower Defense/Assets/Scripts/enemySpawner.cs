@@ -41,7 +41,7 @@ public class enemySpawner : MonoBehaviour
                 //spawn
                 foreach (enemyType etype in currentRound.enemyTypes)
                 {
-                    GameObject newEnemy = Instantiate(enemyPool.Find( x=> x.type==etype ).enemyPrefab,this.transform.position,Quaternion.identity );
+                    GameObject newEnemy = Instantiate(enemyPool.Find( x=> x.type==etype ).enemyPrefab,this.transform,false );
                     //Debug.Log("Enemigo instanciado: "+etype);
                     yield return new WaitForSeconds(1);
                 }

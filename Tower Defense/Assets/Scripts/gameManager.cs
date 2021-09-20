@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 public class gameManager : MonoBehaviour
 {
 
     public static gameManager instance;
+
+    public GameObject hud;
+    public GameObject messagePanel;
     public Slider progressSlider;
+    public GameObject nexus;
+    public GameObject board;
+    
     static bool onPause;
 
     static bool fastSpeed;
-    public GameObject nexus;
     int totalEnemies;
     int spawnedEnemies;
     int killedEnemies;
@@ -22,7 +28,7 @@ public class gameManager : MonoBehaviour
         set{
             if(value>0){
                 spawnedEnemies++;
-            }else if(value<0) killedEnemies++;
+            }else if(value<0){ killedEnemies++; scoreManager.instance.addToScore(10);}
 
             levelProgress= progressSlider.value = (float)(spawnedEnemies+killedEnemies)/(2*totalEnemies);
             
@@ -44,8 +50,12 @@ public class gameManager : MonoBehaviour
     {
         onPause = false; 
         fastSpeed=false;
+        board = GameObject.Find("Board");
         nexus= GameObject.Find("Nexus");
-        progressSlider = GameObject.Find("Progress Slider").GetComponent<Slider>();
+        messagePanel = GameObject.Find("Message panel");
+        messagePanel.SetActive(false);
+        hud = GameObject.Find("HUD");
+        progressSlider = hud.transform.Find("Progress Slider").GetComponent<Slider>();
     }
 
     // Update is called once per frame
@@ -81,10 +91,20 @@ public class gameManager : MonoBehaviour
     }
 
     public void endGame(bool gameWon){
+        string message="";
+        hud.SetActive(false);
+        board.BroadcastMessage("stop",SendMessageOptions.DontRequireReceiver);
         if(gameWon){
-            Debug.Log("Ganas");
+            message = "Level passed";
         }else{
-            Debug.Log("Game over");
+            message = "Try again";
         }
+        messagePanel.SetActive(true);
+        messagePanel.transform.Find("Message").GetComponent<Text>().text= message;
+        messagePanel.transform.Find("Score").GetComponent<Text>().text = scoreManager.instance.checkOutScore().ToString();
+    }
+
+    public void toMainMenu(){
+        SceneManager.LoadScene("MainMenu");
     }
 }

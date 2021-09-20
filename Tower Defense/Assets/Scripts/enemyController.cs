@@ -6,12 +6,15 @@ using UnityEngine.AI;
 public class enemyController : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Transform meta;
+    
     public int health;
+
+    
     void Start()
     {
         this.gameObject.GetComponent<NavMeshAgent>().SetDestination( gameManager.instance.getNexusPosition() );
         gameManager.instance.CurrentEnemies++;
+
         //gameManager.instance.spawnedEnemies++;
     }
 
@@ -32,5 +35,9 @@ public class enemyController : MonoBehaviour
         if(other.tag.Contains("Nexus")){
             gameManager.instance.endGame(false);
         }
+    }
+
+    public void stop(){
+        this.gameObject.GetComponent<NavMeshAgent>().isStopped = true;
     }
 }
