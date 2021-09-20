@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 4891830837620529633}
   - component: {fileID: 4891830837620529636}
   - component: {fileID: 4891830837620529635}
-  - component: {fileID: 4891830837620529634}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Barrell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,20 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4891830837620529634
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4891830837620529632}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4891830837665052759
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +93,7 @@ GameObject:
   - component: {fileID: 4891830837665052760}
   - component: {fileID: 4891830837665052762}
   - component: {fileID: 4891830837665052763}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,8 +174,7 @@ GameObject:
   - component: {fileID: 4891830837938794656}
   - component: {fileID: 4891830837938794655}
   - component: {fileID: 4891830837938794654}
-  - component: {fileID: 4891830837938794653}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,20 +244,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4891830837938794653
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4891830837938794652}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4891830838921412372
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4891830838921412373}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4891830839177564786}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
