@@ -16,8 +16,8 @@ public class mainMenuManager : MonoBehaviour
     }
 
     public void showHighScores(){
-        Debug.Log("Hacia las scores");
-        //SceneManager.LoadScene("ScoresScene");
+
+        SceneManager.LoadScene("HighscoresScene");
     }
 
     public void exitGame(){
