@@ -67,4 +67,8 @@ public class turretController : MonoBehaviour
         }
     }
 
+    public void stop(){
+        StopCoroutine("Patrol");
+    }
+
 }
