@@ -14,14 +14,12 @@ At the end of the level (if you win or lose) your score will be stored remotely;
 Finally, all the stored scores will be shown on the highscores tab (accessible through the main menu), as well as the completion date and if the level was failed or not:
 ![board](imgs/highscores.png)
 
-## Compiling instructions (PC version)
+## Compiling instructions (Android version)
 
-Besides the default resolution, neither of the project initial configuration was changed, so an executale can be built by accessing to **File->Build Settings** and clicking **Build and run**, creating an empty folder is advisable due to the creation of various files within the process: 
+Besides the allowed orientations, neither of the project initial configuration was changed, so an executale can be built by accessing to **File->Build Settings** and clicking **Build and run** if an Android phone is connected and it's desired to install the app on it, or just **Build** to only produce an apk file: 
 Project | Build
 - | - 
-![alt](imgs/projectsettingsPC.png) | ![alt](imgs/buildSettingsPC.png)
+![alt](imgs/projectsettingsAndroid.png) | ![alt](imgs/buildSettingsAndroid.png)
 
-Upon completion, the resulting executale structure should look something like the following, now the "Tower Defense.exe" file can be clicked in order to play the game (the .exe file must be on the same folder as the other files!):
-
-![alt](imgs/pcBuildFolder.png)
+A file explorer window may appear to select on which folder the app will be placed. Upon completion, the resulting apk file can be installed on a phone that allows external applications.
 
